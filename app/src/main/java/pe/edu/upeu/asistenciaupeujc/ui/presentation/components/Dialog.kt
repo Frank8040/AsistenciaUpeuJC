@@ -12,13 +12,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import pe.edu.upeu.asistenciaupeujc.ui.navigation.Destinations.Pantalla_01.title
 
 @Composable
 fun Dialog(
     showDialog: Boolean,
-    dismissDialog: ()
-    -> Unit
+    dismissDialog: () -> Unit
 ) {
     if (showDialog) {
         AlertDialog(
@@ -26,8 +24,8 @@ fun Dialog(
             title = {
                 Text(
                     "Título del Diálogo", style = TextStyle(
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold
                     )
                 )
             },
@@ -41,14 +39,12 @@ fun Dialog(
                 }
             },
             confirmButton = {
-                Button(onClick = { dismissDialog() })
-                {
-                Text("Aceptar")
+                Button(onClick = { dismissDialog() }) {
+                    Text("Aceptar")
                 }
             },
             dismissButton = {
-                Button(onClick = { dismissDialog() })
-                {
+                Button(onClick = { dismissDialog() }) {
                     Text("Cancelar")
                 }
             }

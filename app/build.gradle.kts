@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt") //Agregado
+    id("dagger.hilt.android.plugin") //Agregado
 }
 
 android {
@@ -18,6 +20,15 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        //Agregado Inicio
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // arguments += ["room.schemaLocation":
+                //"$projectDir/schemas".toString()]
+            }
+        }
+        //Agregado Fin
+
     }
 
     buildTypes {
@@ -30,11 +41,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"//1.8
     }
     buildFeatures {
         compose = true
@@ -59,10 +70,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-android:1.5.0")
-    implementation("com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0")
-    implementation("androidx.compose.foundation:foundation-layout-android:1.5.0")
-    implementation("com.google.firebase:firebase-inappmessaging-ktx:20.3.3")
+    implementation("androidx.compose.material3:material3-window-size-class") //Agregado
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -77,4 +85,8 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-insets:0.31.4-beta")//Agregado //0.17.0
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta") //0.16.0
     implementation ("com.google.accompanist:accompanist-navigation-animation:0.31.4-beta") //0.16.0
+
+    //Agregados
+    implementation ("com.google.dagger:hilt-android:2.47")
+    kapt ("com.google.dagger:hilt-compiler:2.47")
 }

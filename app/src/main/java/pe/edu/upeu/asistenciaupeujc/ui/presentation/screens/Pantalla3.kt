@@ -10,13 +10,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Pantalla_03() {
+fun Pantalla3() {
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Hola Mundo")
+        Text(text = "Holas dd")
     }
 }
